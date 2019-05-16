@@ -1,0 +1,12 @@
+<p>  <% @phases.each do |phase| %>
+
+    <%= phase.phase1 %>
+    <%= link_to "approve", approve_path(phase), method: :post %>
+    
+
+     <% end %>
+  </p>
+
+<% if current_user %>
+    <%= link_to "signout" , destroy_user_session_path ,method:     :delete  %>
+ <% end %>
