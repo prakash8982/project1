@@ -72,6 +72,17 @@ class PstaffsController < ApplicationController
   def update
     respond_to do |format|
       if @pstaff.update(pstaff_params)
+        @user = User.all
+        for i in @user do
+           if(i.role == @pstaff.department)
+           @id = i
+            break 
+          end
+        end
+
+         NotifyMailer.with(user: @id).recive_email.deliver
+        
+
         format.html { redirect_to @pstaff, notice: 'Pstaff was successfully updated.' }
         format.json { render :show, status: :ok, location: @pstaff }
       else
@@ -99,9 +110,6 @@ class PstaffsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pstaff_params
-      params.require(:pstaff).permit(:name, :gender, :mobile_no, :department, :address, :vehical_type, :registration_certificate, :aadhaar_card, :phase1 )
+      params.require(:pstaff).permit(:name, :gender, :unique_id, :vichel_no, :vichel_type, :vichel_model, :mobile_no, :department, :address, :registration_certificate, :aadhaar_card, :type_applicant, :RC_holder_name, :relationship)
     end
-
-
-     
 end

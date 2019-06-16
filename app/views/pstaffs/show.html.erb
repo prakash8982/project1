@@ -4,6 +4,22 @@
 <p><%=current_user.id%></p>
 
 <p><%=@pstaff.name%> </p> 
+<p><%=@pstaff.unique_id%> </p>
+<p><%=@pstaff.gender%> </p>
+<p><%=@pstaff.mobile_no%> </p>
+<p><%=@pstaff.department%> </p>
+<p><%=@pstaff.vichel_no%> </p>
+<p><%=@pstaff.vehical_type%> </p>
+<p><%=@pstaff.vichel_model%> </p>
+<p><%=@pstaff.address%> </p>
+<p><%=@pstaff.registration_certificate%> </p>
+<p><%=@pstaff.aadhaar_card%> </p>
+<p><%=@pstaff.RC_holder_name%> </p>
+<p><%=@pstaff.relationship%> </p>
+
+<% if @pstaff.phase1 == false %>
+         <%= link_to 'Edit', edit_pstaff_path(@pstaff) %>
+<% end %>
 <% if current_user %>
     <%= link_to "signout" , destroy_user_session_path ,method:     :delete  %>
 <% end %>

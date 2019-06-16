@@ -14,7 +14,7 @@
   <%= link_to "about",home_about_path %>
   <%= link_to "sign up",new_user_registration_path %>
   <%= link_to "sign in",new_user_session_path %>
-  <%= link_to "contact us",home_contect_path %>
+  <%= link_to "contact us",home_contact_path %>
   
 </nav>
 
@@ -40,11 +40,10 @@
 <div class="container ">
   <div class="container-fluid"> 
 
-  <h3>  for parmanenet faculty           <%= link_to "apply",new_pstaff_path %></h3> 
-  <h3>  for  temprary  faculty           <%= link_to "apply",pstaffs_tstaff_new_path %></h3>
+  <h3>  for parmanenet staffs         <%= link_to "apply",new_pstaff_path %></h3> 
+  <h3>  for  temprary  staffs          <%= link_to "apply",pstaffs_tstaff_new_path %></h3>
   <h3>  for phdscholors                <%= link_to "apply", pstaffs_phdstaff_new_path%></h3>
-  <h3>  for venders           <%= link_to "apply",pstaffs_vender_new_path %></h3>
-  <h3>  for others faculty           <%= link_to "apply",pstaffs_others_new_path %></h3>
+  <h3>  for other staffs           <%= link_to "apply",pstaffs_others_new_path %></h3>
   <h3>  logout     <% if current_user %>
     <%= link_to "signout" , destroy_user_session_path ,method:     :delete  %>  <%end %></h3>
   

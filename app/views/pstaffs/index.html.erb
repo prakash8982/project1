@@ -5,13 +5,20 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>EMP_ID</th>
       <th>Gender</th>
       <th>Mobile no</th>
       <th>Department</th>
-      <th>Address</th>
+      <th>Vichel_no</th>
+      <th>Vichel_model</th>
+      <th>Vichel_type</th>
       <th>Vehical type</th>
+      <th>Address</th>
       <th>Registration certificate</th>
       <th>Aadhaar card</th>
+      <th>Phase1</th>
+      <th>Phase2</th>
+      <th>Phase3</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,21 +27,46 @@
     <% @pstaffs.each do |pstaff| %>
       <tr>
         <td><%= pstaff.name %></td>
+        <td><%= pstaff.unique_id %></td>
         <td><%= pstaff.gender %></td>
         <td><%= pstaff.mobile_no %></td>
         <td><%= pstaff.department %></td>
-        <td><%= pstaff.address %></td>
+        <td><%= pstaff.vichel_no %></td>
         <td><%= pstaff.vehical_type %></td>
+        <td><%= pstaff.vichel_model %></td>
+        <td><%= pstaff.address %></td>
         <td><%= pstaff.registration_certificate %></td>
         <td><%= pstaff.aadhaar_card %></td>
 
         <td><%= link_to 'Show', pstaff %></td>
+        <% if pstaff.phase1 == false %>
+           <td><%= link_to 'Edit', edit_pstaff_path(pstaff) %></td>
+        <
+        <% end %>
+        <% if pstaff.phase1 == false %>
+            <td>yet Not Approved</td>
+        <% else %>
+               <td>Approved</td>
+        <% end %>
+         <% if pstaff.phase2 == false %>
+            <td>yet Not Approved</td>
+        <% else %>
+             <td>Approved</td> 
+         <% end %> 
+        <% if pstaff.phase3 == false %>
+           <td>yet Not Approved</td>
+        <% else %>
+           <td>Approved</td>
+         <% end %>  
+
+
         <% if current_user && current_user.admin %>
            current_user.redirect_to phase1_index_path 
         <td><%= link_to 'Edit', edit_pstaff_path(pstaff) %></td>
         <td><%= link_to 'Destroy', pstaff, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
         <% end %>
-      </tr>
+      </tr> 
+
 
     <% end %>
   </tbody>
@@ -48,4 +80,4 @@
      <% end %>
 
      <!-- all the condition to redirecut the form from here to its perticular form -->
-<%= link_to 'New Pstaff', new_pstaff_path %>
+<%= link_to 'apply_for_another_vichel', new_pstaff_path %>

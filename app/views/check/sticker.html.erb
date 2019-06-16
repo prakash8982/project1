@@ -1,0 +1,10 @@
+<h1>provide HTML</h1>
+
+<%= form_tag(sticker_path) @ do |f| %>
+        <%= f.text_field :sticker %>
+     <%= f.submit "sticker" %>
+<% end %>
+
+
+
+<%= link_to "prev" , check_phase3_path %>

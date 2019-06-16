@@ -1,11 +1,58 @@
-<p>  <% @phases.each do |phase| %>
+<p id="notice"><%= notice %></p>
+<p> <h1>Unapproved application</h1> count = <%= @phases.where(:phase1 => false).count %></p>
 
-    <%= phase.phase1 %>
-    <%= link_to "approve", approve_path(phase), method: :post %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>EMP_ID</th>
+      <th>Mobile no</th>
+      <th>Vichel_no</th>
+      <th>Vichel_type</th>
+      <th>Vehical type</th>
+      </tr>
+  </thead>
+<tbody>
+<% count1= 0%>
+<% @phases.each do |phase| %>
+   <tr>
+   <% if phase.phase1 == false %>
+
+        <td><%= phase.name %></td>
+        <td><%= phase.unique_id %></td>
+        <td><%= phase.mobile_no %></td>
+        <td><%= phase.vichel_no %></td>
+        <td><%= phase.vehical_type %></td>
+        <!-- <td><%= link_to 'Show', phase %></td> -->
+        <td><%= link_to "approve", approve_path(phase), method: :post %></td>
+   
+    </tr>
+
+    </tbody>
     
+    <% end %>
 
      <% end %>
-  </p>
+  </table>
+ <p><h1>approved application</h1>  count = <%= @phases.where(:phase1 => true).count %> </p>
+<table>
+
+ <tbody>
+<% @phases.each do |phase| %>
+   <tr>
+   <% if phase.phase1 == true %>
+        <td><%= phase.name %></td>
+        <td><%= phase.unique_id %></td>
+        <td><%= phase.mobile_no %></td>
+        <td><%= phase.vichel_no %></td>
+        <td><%= phase.vehical_type %></td>
+        <!-- <td><%= link_to 'Show', phase %></td> -->
+       
+   <% end %>
+    </tr>
+   <% end %>
+    </tbody>
+   </table>
 
 <% if current_user %>
     <%= link_to "signout" , destroy_user_session_path ,method:     :delete  %>

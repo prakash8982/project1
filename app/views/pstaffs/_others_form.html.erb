@@ -11,7 +11,7 @@
     </div>
   <% end %>
  <div class ="jubotron text-center" >
-      <h1 class="display-7">others</h1>
+      <h1 class="display-7">Temprary Staff</h1>
  </div>
  <div class="container_fluid" ">
   <div class="row" >
@@ -29,20 +29,30 @@
   </div>
 
   <div class="field">
+    <h5><%= form.text_field :vichel_no %></h5>
+  </div>
+
+ <div class="field">
+  <h5><%= form.text_field :vehical_type %></h5>
+  </div>
+   
+   <div class="field">
+  <h5><%= form.text_field :vehical_model %></h5>
+  </div>
+
+
+  <div class="field">
    <h5><%= form.text_field :mobile_no %></h5>
   </div>
 
-  <div class="field">
-    <h5><%= form.text_field :department %></h5>
+   <div class="dropdown">
+    <h5><%= form.select :department, Pstaff::TEMP2  %></h5>
   </div>
-
   <div class="field">
    <h5><%= form.text_field :address %></h5>
   </div>
 
-  <div class="field">
-  <h5><%= form.text_field :vehical_type %></h5>
-  </div>
+  
 
   <div class="field">
   <h5><%= form.file_field :registration_certificate %></h5>
@@ -51,6 +61,13 @@
   <div class="field">
    <h5><%= form.file_field :aadhaar_card %></h5>
   </div>
+
+  <div class="field">
+   <p> if registration certificate note on the name of the applicant then fill the name on the RC  and relationship between the applicant and RC holder </p>
+  <h5><%= form.text_field :RC_holder_name %></h5>
+  <h5><%= form.text_field :relationship %></h5>
+  </div>
+
 
   <div class="actions">
     <%= form.submit "Submit", class:"btn btn-primary" %>

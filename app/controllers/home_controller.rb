@@ -1,11 +1,7 @@
 class HomeController < ApplicationController
 	def index
 
-    if current_user.admin == true
-      redirect_to check_phase1_path
-
-          
-    elsif current_user.phase1 == true
+    if current_user.phase1 == true
            redirect_to check_phase1_path
 
     elsif current_user.phase2 == true
@@ -32,7 +28,7 @@ class HomeController < ApplicationController
     end
 
 
-   def contect
+   def contact
    end
 
    def home1
