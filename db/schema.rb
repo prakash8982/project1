@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_15_125825) do
+ActiveRecord::Schema.define(version: 2019_05_18_081758) do
 
   create_table "phase1s", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -40,10 +40,16 @@ ActiveRecord::Schema.define(version: 2019_05_15_125825) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "document"
     t.boolean "phase1", default: false
     t.boolean "phase2", default: false
     t.boolean "phase3", default: false
     t.string "type_applicant"
+    t.string "vichel_no"
+    t.string "vichel_model"
+    t.string "unique_id"
+    t.string "RC_holder_name"
+    t.string "relationship"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -62,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_05_15_125825) do
     t.boolean "phase1", default: false
     t.boolean "phase2", default: false
     t.boolean "phase3", default: false
+    t.string "role", default: "none"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
